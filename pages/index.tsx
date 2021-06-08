@@ -1,9 +1,11 @@
 import Head from 'next/head'
+import { Fragment } from 'react'
+import BaseLayout from '../src/layout/BaseLayout'
 import styles from '../styles/Home.module.css'
 
 export default function Home(): JSX.Element {
   return (
-    <div className={styles.container}>
+    <Fragment>
       <Head>
         <title>Base App</title>
         <meta name="description" content="This is our base app" />
@@ -11,8 +13,10 @@ export default function Home(): JSX.Element {
       </Head>
 
       <main className={styles.main}>
-        <h1>Hello</h1>
+        <BaseLayout>
+          <p>Hello</p>
+        </BaseLayout>
       </main>
-    </div>
+    </Fragment>
   )
 }
