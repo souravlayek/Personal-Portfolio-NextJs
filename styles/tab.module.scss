@@ -1,0 +1,29 @@
+.homeTabContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .heading {
+    text-align: center;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 80px;
+    line-height: 120px;
+    /* identical to box height */
+
+    color: #6287b6;
+  }
+  .tagline {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 27px;
+    /* identical to box height */
+
+    color: #6287b6;
+  }
+}

@@ -2,6 +2,10 @@ import React from 'react'
 import Image from 'next/image'
 
 import styles from '../../styles/BaseLayout.module.scss'
+
+import { Button, Input } from '../components/ui'
+
+// icons
 import Home from '../assets/icons/home.svg'
 import About from '../assets/icons/about.svg'
 import Resume from '../assets/icons/resume.svg'
@@ -13,10 +17,11 @@ import Next from '../assets/icons/next.svg'
 import Prev from '../assets/icons/prev.svg'
 import LinkedIn from '../assets/icons/linkedin.svg'
 import GitHub from '../assets/icons/github.svg'
-import { Button, Input } from '../components/ui'
 
 interface Props {
   children: React.ReactNode
+  setActiveTab: (type: 'prev' | 'next' | 'set', tabNumber?: number) => void
+  currentTab: number
 }
 
 const BaseLayout = (props: Props): JSX.Element => {
@@ -53,33 +58,78 @@ const BaseLayout = (props: Props): JSX.Element => {
       </div>
       <div className={styles.sideSection}>
         <div className={styles.sidebar_one}>
-          <div className={styles.item}>
+          <div
+            role="button"
+            tabIndex={0}
+            onClick={() => props.setActiveTab('set', 0)}
+            className={props.currentTab === 0 ? styles.activeItem : styles.item}
+          >
             <Home />
           </div>
-          <div className={styles.item}>
+          <div
+            role="button"
+            tabIndex={0}
+            onClick={() => props.setActiveTab('set', 1)}
+            className={props.currentTab === 1 ? styles.activeItem : styles.item}
+          >
             <About />
           </div>
-          <div className={styles.item}>
+          <div
+            role="button"
+            tabIndex={0}
+            onClick={() => props.setActiveTab('set', 2)}
+            className={props.currentTab === 2 ? styles.activeItem : styles.item}
+          >
             <Resume />
           </div>
-          <div className={styles.item}>
+          <div
+            role="button"
+            tabIndex={0}
+            onClick={() => props.setActiveTab('set', 3)}
+            className={props.currentTab === 3 ? styles.activeItem : styles.item}
+          >
             <Experience />
           </div>
-          <div className={styles.item}>
+          <div
+            role="button"
+            tabIndex={0}
+            onClick={() => props.setActiveTab('set', 4)}
+            className={props.currentTab === 4 ? styles.activeItem : styles.item}
+          >
             <Blogs />
           </div>
-          <div className={styles.item}>
+          <div
+            role="button"
+            tabIndex={0}
+            onClick={() => props.setActiveTab('set', 5)}
+            className={props.currentTab === 5 ? styles.activeItem : styles.item}
+          >
             <Podcast />
           </div>
-          <div className={styles.item}>
+          <div
+            role="button"
+            tabIndex={0}
+            onClick={() => props.setActiveTab('set', 6)}
+            className={props.currentTab === 6 ? styles.activeItem : styles.item}
+          >
             <Contact />
           </div>
         </div>
         <div className={styles.sidebar_two}>
-          <div className={styles.item}>
+          <div
+            role="button"
+            tabIndex={0}
+            onClick={() => props.setActiveTab('next')}
+            className={styles.item}
+          >
             <Next />
           </div>
-          <div className={styles.item}>
+          <div
+            role="button"
+            tabIndex={0}
+            onClick={() => props.setActiveTab('prev')}
+            className={styles.item}
+          >
             <Prev />
           </div>
         </div>
