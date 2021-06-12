@@ -3,9 +3,11 @@ import { Fragment, useState } from 'react'
 import { AboutScreen, HomeScreen } from '../src/components/tabs'
 import BaseLayout from '../src/layout/BaseLayout'
 import styles from '../styles/Home.module.css'
+import { CSSTransition } from 'react-transition-group'
 
 export default function Home(): JSX.Element {
   const [activeTab, setActiveTab] = useState(0)
+  const [transitopnOn, setTransitopnOn] = useState(false)
   const handleTabChange = (type: 'prev' | 'next' | 'set', pageIndex?: number): void => {
     console.log(type)
     switch (type) {
@@ -50,9 +52,23 @@ export default function Home(): JSX.Element {
       <main className={styles.main}>
         <BaseLayout
           currentTab={activeTab}
-          setActiveTab={(type, pageIndex) => handleTabChange(type, pageIndex)}
+          setActiveTab={(type, pageIndex) => {
+            setTransitopnOn(true)
+            setTimeout(() => {
+              handleTabChange(type, pageIndex)
+            }, 400)
+          }}
         >
-          {TABS[activeTab]}
+          <CSSTransition
+            in={transitopnOn}
+            onEntered={() => {
+              setTransitopnOn(false)
+            }}
+            timeout={350}
+            classNames={styles.display}
+          >
+            <div className="display">{TABS[activeTab]}</div>
+          </CSSTransition>
         </BaseLayout>
       </main>
     </Fragment>
