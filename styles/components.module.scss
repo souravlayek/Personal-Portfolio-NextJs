@@ -59,3 +59,101 @@
     letter-spacing: 1px;
   }
 }
+
+.headingText {
+  position: relative;
+  width: fit-content;
+  margin-bottom: 30px;
+  text-transform: capitalize;
+  .background {
+    top: 0;
+    z-index: -1;
+    right: -40px;
+    position: absolute;
+  }
+  .main {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 48px;
+    color: #6287b6;
+  }
+  .colored {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 48px;
+    color: #62a5fa;
+  }
+}
+
+.testimonialCard {
+  width: fit-content;
+  height: fit-content;
+  min-width: 323px;
+  position: relative;
+  .cardBody {
+    background: linear-gradient(151.27deg, rgba(255, 255, 255, 0.65) 1.68%, #ffffff 100%);
+    box-shadow: 5px 4px 10px rgba(88, 88, 88, 0.25);
+    border-radius: 21px;
+    padding: 25px;
+    padding-top: 100px;
+    position: relative;
+    max-width: 323px;
+    min-height: 433px;
+    max-height: 433px;
+    z-index: 2;
+    .data {
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 25px;
+
+      color: #000000;
+    }
+    .quoteBackground {
+      position: absolute;
+      width: 174px;
+      height: 138px;
+      bottom: 80px;
+      right: 20px;
+      z-index: -1;
+    }
+    .userDetails {
+      margin-top: 40px;
+      .name {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 27px;
+        /* identical to box height */
+
+        color: #000000;
+      }
+      .company {
+        margin-top: 10px;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 24px;
+        color: #000000;
+      }
+    }
+  }
+  .image {
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 50%;
+    z-index: 3;
+  }
+}

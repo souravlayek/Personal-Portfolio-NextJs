@@ -27,3 +27,100 @@
     color: #6287b6;
   }
 }
+
+.AboutTab {
+  .text {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 30px;
+    color: #264b7a;
+  }
+  .detailsItem {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: #6287b6;
+    .title {
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: normal;
+      font-size: 20px;
+      line-height: 30px;
+      color: #264b7a;
+    }
+  }
+  .workTypeItem {
+    .heading {
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: normal;
+      font-size: 20px;
+      line-height: 30px;
+      /* identical to box height */
+      text-align: center;
+      color: #264b7a;
+    }
+    .data {
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 24px;
+
+      color: #264b7a;
+    }
+  }
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  .col_6 {
+    grid-column: auto / span 6;
+    &:nth-child(odd) {
+      margin-right: 10px;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  .col_4 {
+    grid-column: auto / span 4;
+  }
+}
+
+.testimonials {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 70px;
+  padding-bottom: 20px;
+  display: flex;
+  gap: 30px;
+  &::-webkit-scrollbar {
+    width: 10px;
+    height: 8px;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: none;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    height: 5px;
+    border-radius: 5px;
+    background: #b1b1b188;
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: #b1b1b1f1;
+  }
+}

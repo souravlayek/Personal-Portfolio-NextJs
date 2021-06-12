@@ -82,8 +82,30 @@
       }
     }
     .content {
-      padding: 20px;
+      padding: 5%;
       width: 75%;
+      overflow-y: auto;
+      &::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+
+      /* Track */
+      &::-webkit-scrollbar-track {
+        background: none;
+      }
+
+      /* Handle */
+      &::-webkit-scrollbar-thumb {
+        height: 5px;
+        border-radius: 5px;
+        background: #b1b1b188;
+      }
+
+      /* Handle on hover */
+      &::-webkit-scrollbar-thumb:hover {
+        background: #b1b1b1f1;
+      }
     }
   }
   .sideSection {
