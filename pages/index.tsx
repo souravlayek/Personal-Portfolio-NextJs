@@ -1,13 +1,13 @@
 import Head from 'next/head'
 import { Fragment, useState } from 'react'
-import { AboutScreen, HomeScreen } from '../src/components/tabs'
+import { AboutScreen, HomeScreen, ResumeScreen } from '../src/components/tabs'
 import BaseLayout from '../src/layout/BaseLayout'
 import styles from '../styles/Home.module.css'
 import { CSSTransition } from 'react-transition-group'
 
 export default function Home(): JSX.Element {
   const [activeTab, setActiveTab] = useState(0)
-  const [transitopnOn, setTransitopnOn] = useState(false)
+  const [transitionOn, setTransitionOn] = useState(false)
   const handleTabChange = (type: 'prev' | 'next' | 'set', pageIndex?: number): void => {
     console.log(type)
     switch (type) {
@@ -39,6 +39,7 @@ export default function Home(): JSX.Element {
   const TABS: Array<React.ReactNode> = [
     <HomeScreen key={Math.random()} />,
     <AboutScreen key={Math.random()} />,
+    <ResumeScreen key={Math.random()} />,
   ]
 
   return (
@@ -53,16 +54,16 @@ export default function Home(): JSX.Element {
         <BaseLayout
           currentTab={activeTab}
           setActiveTab={(type, pageIndex) => {
-            setTransitopnOn(true)
+            setTransitionOn(true)
             setTimeout(() => {
               handleTabChange(type, pageIndex)
             }, 400)
           }}
         >
           <CSSTransition
-            in={transitopnOn}
+            in={transitionOn}
             onEntered={() => {
-              setTransitopnOn(false)
+              setTransitionOn(false)
             }}
             timeout={350}
             classNames={styles.display}

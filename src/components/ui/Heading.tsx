@@ -1,12 +1,14 @@
 import React from 'react'
 import styles from '../../../styles/components.module.scss'
 import CircleGrid from '../../assets/icons/circleGrid.svg'
+import SmallCircleGrid from '../../assets/icons/smallCircleGrid.svg'
 
 interface Props {
   title: string
+  subheading?: boolean
 }
 
-const Heading = (props: Props): JSX.Element => {
+const Heading = ({ title, subheading = false }: Props): JSX.Element => {
   const splitHeading = (text: string): string[] => {
     const wordList = text.split(' ')
     const notColoredString = wordList.slice(0, -1).join(' ')
@@ -16,14 +18,12 @@ const Heading = (props: Props): JSX.Element => {
     }
     return [notColoredString, coloredString]
   }
-  const [notColoredString, coloredString] = splitHeading(props.title)
+  const [notColoredString, coloredString] = splitHeading(title)
   return (
-    <div className={styles.headingText}>
+    <div className={subheading ? styles.subHeadingText : styles.headingText}>
       <span className={styles.main}>{notColoredString}</span>
       <span className={styles.colored}>{' ' + coloredString}</span>
-      <div className={styles.background}>
-        <CircleGrid />
-      </div>
+      <div className={styles.background}>{subheading ? <SmallCircleGrid /> : <CircleGrid />}</div>
     </div>
   )
 }

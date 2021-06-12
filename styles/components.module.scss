@@ -88,6 +88,34 @@
     color: #62a5fa;
   }
 }
+.subHeadingText {
+  position: relative;
+  width: fit-content;
+  margin-bottom: 30px;
+  text-transform: capitalize;
+  .background {
+    top: 0;
+    z-index: -1;
+    right: -40px;
+    position: absolute;
+  }
+  .main {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 33px;
+    color: #6287b6;
+  }
+  .colored {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 33px;
+    color: #62a5fa;
+  }
+}
 
 .testimonialCard {
   width: fit-content;
@@ -155,5 +183,172 @@
     overflow: hidden;
     border-radius: 50%;
     z-index: 3;
+  }
+}
+
+.timelineItem {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  justify-content: space-evenly;
+  .leftData {
+    width: 36%;
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    align-items: flex-end;
+    .mainHeading {
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: bold;
+      font-size: 18px;
+      line-height: 27px;
+      /* identical to box height */
+
+      color: #6287b6;
+      text-align: right;
+    }
+    .content {
+      text-align: right;
+      .subheading {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 24px;
+        /* identical to box height */
+
+        color: #6287b6;
+      }
+      .caption {
+        margin-top: 10px;
+        font-family: 'Poppins';
+        font-style: italic;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 21px;
+        /* identical to box height */
+
+        color: #6287b6;
+      }
+    }
+  }
+  .bulletWrapper {
+    width: 6%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &::after {
+      content: '';
+      margin-top: 10%;
+      height: 90%;
+      width: 1px;
+      background-color: rgba(255, 255, 255, 0.6);
+    }
+    .bullet {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 20px;
+      height: 20px;
+      min-width: 20px;
+      min-height: 20px;
+      border-radius: 50%;
+      background: linear-gradient(
+        108.98deg,
+        rgba(255, 255, 255, 0.48) 0%,
+        rgba(255, 255, 255, 0.12) 100%
+      );
+      backdrop-filter: blur(75px);
+
+      .innerBullet {
+        width: 10px;
+        height: 10px;
+        min-width: 10px;
+        min-height: 10px;
+        border-radius: 50%;
+
+        background: linear-gradient(
+          108.98deg,
+          rgba(107, 241, 245, 0.6) 0%,
+          rgba(98, 250, 169, 0.486) 100%
+        );
+        backdrop-filter: blur(75px);
+      }
+    }
+  }
+  .rightData {
+    width: 58%;
+    .heading {
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: bold;
+      font-size: 18px;
+      line-height: 27px;
+      /* identical to box height */
+
+      color: #6287b6;
+    }
+    .data {
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 21px;
+
+      color: #6287b6;
+    }
+  }
+}
+
+.progressbar {
+  margin: 10px 0;
+  .data {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    .title {
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 21px;
+      /* identical to box height */
+
+      color: #6287b6;
+    }
+    .value {
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: normal;
+      font-size: 12px;
+      line-height: 18px;
+
+      color: #6287b6;
+    }
+  }
+  .bar {
+    height: 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(
+      108.98deg,
+      rgba(255, 255, 255, 0.32) 0%,
+      rgba(255, 255, 255, 0.08) 100%
+    );
+    backdrop-filter: blur(75px);
+    /* Note: backdrop-filter has minimal browser support */
+
+    border-radius: 34.5px;
+    .innerBar {
+      margin-left: 5px;
+      height: 10px;
+      width: 0%;
+      max-width: calc(100% - 10px);
+      background: linear-gradient(90.1deg, #62a5fa 1.18%, rgba(98, 250, 169, 0.81) 99.3%);
+      border-radius: 16.5px;
+    }
   }
 }
