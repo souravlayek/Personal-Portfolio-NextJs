@@ -54,7 +54,13 @@ export default function Home(): JSX.Element {
         <BaseLayout
           currentTab={activeTab}
           setActiveTab={(type, pageIndex) => {
-            setTransitionOn(true)
+            if (
+              (type === 'next' && activeTab < TABS.length - 1 && activeTab > 0) ||
+              (type === 'prev' && activeTab < TABS.length && activeTab > 0) ||
+              type === 'set'
+            ) {
+              setTransitionOn(true)
+            }
             setTimeout(() => {
               handleTabChange(type, pageIndex)
             }, 400)

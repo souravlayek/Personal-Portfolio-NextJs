@@ -131,6 +131,7 @@
     border: 2px solid rgba(255, 255, 255, 0.18);
     border-radius: 30px;
     .item {
+      position: relative;
       cursor: pointer;
       transition: margin 0.3s ease-in-out;
       margin: 0px 5px;
@@ -147,6 +148,38 @@
       box-shadow: 0px 0px 0px transparent;
       border: 0px solid transparent;
       text-shadow: 0px 0px 0px transparent;
+    }
+    .tooltip {
+      visibility: hidden;
+      width: max-content;
+      height: fit-content;
+      background-color: rgba(0, 0, 0, 0.403);
+      color: #fff;
+      text-align: center;
+      padding: 5px 10px;
+      border-radius: 6px;
+
+      /* Position the tooltip text - see examples below! */
+      top: 5px;
+      right: 105%;
+      position: absolute;
+      z-index: 3;
+      &::after {
+        content: ' ';
+        position: absolute;
+        top: 50%;
+        left: 100%; /* To the right of the tooltip */
+        margin-top: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: transparent transparent transparent rgba(0, 0, 0, 0.403);
+      }
+    }
+    .item:hover .tooltip {
+      visibility: visible;
+    }
+    .activeItem:hover .tooltip {
+      visibility: visible;
     }
     .activeItem {
       cursor: pointer;

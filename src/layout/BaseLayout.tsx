@@ -65,6 +65,7 @@ const BaseLayout = (props: Props): JSX.Element => {
             className={props.currentTab === 0 ? styles.activeItem : styles.item}
           >
             <Home />
+            <span className={styles.tooltip}>Welcome</span>
           </div>
           <div
             role="button"
@@ -73,6 +74,7 @@ const BaseLayout = (props: Props): JSX.Element => {
             className={props.currentTab === 1 ? styles.activeItem : styles.item}
           >
             <About />
+            <span className={styles.tooltip}>About Me</span>
           </div>
           <div
             role="button"
@@ -81,6 +83,7 @@ const BaseLayout = (props: Props): JSX.Element => {
             className={props.currentTab === 2 ? styles.activeItem : styles.item}
           >
             <Resume />
+            <span className={styles.tooltip}>My Resume</span>
           </div>
           <div
             role="button"
@@ -89,6 +92,7 @@ const BaseLayout = (props: Props): JSX.Element => {
             className={props.currentTab === 3 ? styles.activeItem : styles.item}
           >
             <Experience />
+            <span className={styles.tooltip}>My Experiences</span>
           </div>
           <div
             role="button"
@@ -97,6 +101,7 @@ const BaseLayout = (props: Props): JSX.Element => {
             className={props.currentTab === 4 ? styles.activeItem : styles.item}
           >
             <Blogs />
+            <span className={styles.tooltip}>Blogs</span>
           </div>
           <div
             role="button"
@@ -105,6 +110,7 @@ const BaseLayout = (props: Props): JSX.Element => {
             className={props.currentTab === 5 ? styles.activeItem : styles.item}
           >
             <Podcast />
+            <span className={styles.tooltip}>Podcasts</span>
           </div>
           <div
             role="button"
@@ -113,6 +119,7 @@ const BaseLayout = (props: Props): JSX.Element => {
             className={props.currentTab === 6 ? styles.activeItem : styles.item}
           >
             <Contact />
+            <span className={styles.tooltip}>Contact Me</span>
           </div>
         </div>
         <div className={styles.sidebar_two}>
