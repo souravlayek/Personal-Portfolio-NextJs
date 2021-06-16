@@ -147,3 +147,77 @@
     }
   }
 }
+
+.portfolioTab {
+  position: relative;
+  padding-bottom: 60px;
+  .tabs {
+    // margin-top: 60px;
+    display: flex;
+    gap: 20px;
+    .tabItem {
+      cursor: pointer;
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 27px;
+      /* identical to box height */
+
+      color: #6287b6;
+      &.active {
+        color: #ffffff;
+      }
+    }
+  }
+  .portfolioItemList {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .backButton {
+    cursor: pointer;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(
+      108.98deg,
+      rgba(255, 255, 255, 0.32) 0%,
+      rgba(255, 255, 255, 0.08) 100%
+    );
+    backdrop-filter: blur(75px);
+    /* Note: backdrop-filter has minimal browser support */
+    border: 3px solid;
+
+    border-image-source: linear-gradient(
+      108.98deg,
+      rgba(255, 255, 255, 0.36) 0%,
+      rgba(255, 255, 255, 0.09) 100%
+    );
+
+    border-radius: 38px;
+  }
+  .details {
+    .imageWrapper {
+      margin-top: 80px;
+      width: 100%;
+      height: fit-content;
+      border-radius: 30px;
+      overflow: hidden;
+      margin-bottom: 60px;
+    }
+    .content {
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 21px;
+
+      color: #000000;
+    }
+  }
+}

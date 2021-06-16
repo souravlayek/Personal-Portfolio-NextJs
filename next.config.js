@@ -16,6 +16,9 @@ const nextConfig = {
 
     return config
   },
+  images: {
+    domains: ['raw.githubusercontent.com'],
+  },
 }
 
 module.exports = nextConfig

@@ -92,7 +92,7 @@ const BaseLayout = (props: Props): JSX.Element => {
             className={props.currentTab === 3 ? styles.activeItem : styles.item}
           >
             <Experience />
-            <span className={styles.tooltip}>My Experiences</span>
+            <span className={styles.tooltip}>My Works</span>
           </div>
           <div
             role="button"
