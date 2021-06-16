@@ -1,6 +1,12 @@
 import Head from 'next/head'
 import { Fragment, useState } from 'react'
-import { AboutScreen, HomeScreen, ResumeScreen, PortfolioScreen } from '../src/components/tabs'
+import {
+  AboutScreen,
+  HomeScreen,
+  ResumeScreen,
+  PortfolioScreen,
+  BlogScreen,
+} from '../src/components/tabs'
 import BaseLayout from '../src/layout/BaseLayout'
 import styles from '../styles/Home.module.css'
 import { CSSTransition } from 'react-transition-group'
@@ -41,6 +47,7 @@ export default function Home(): JSX.Element {
     <AboutScreen key={Math.random()} />,
     <ResumeScreen key={Math.random()} />,
     <PortfolioScreen key={Math.random()} />,
+    <BlogScreen key={Math.random()} />,
   ]
 
   return (
