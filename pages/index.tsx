@@ -17,7 +17,6 @@ export default function Home(): JSX.Element {
   const [activeTab, setActiveTab] = useState(0)
   const [transitionOn, setTransitionOn] = useState(false)
   const handleTabChange = (type: 'prev' | 'next' | 'set', pageIndex?: number): void => {
-    console.log(type)
     switch (type) {
       case 'next':
         setActiveTab((prev) => {
@@ -67,7 +66,7 @@ export default function Home(): JSX.Element {
           currentTab={activeTab}
           setActiveTab={(type, pageIndex) => {
             if (
-              (type === 'next' && activeTab < TABS.length - 1 && activeTab > 0) ||
+              (type === 'next' && activeTab < TABS.length - 1 && activeTab >= 0) ||
               (type === 'prev' && activeTab < TABS.length && activeTab > 0) ||
               type === 'set'
             ) {
