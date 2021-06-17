@@ -15,6 +15,15 @@
     /* identical to box height */
 
     color: #6287b6;
+    @media only screen and (max-width: 1025px) {
+      font-size: 50px;
+      line-height: 80px;
+    }
+    @media only screen and (max-width: 600px) {
+      font-size: 35px;
+      line-height: 50px;
+      text-align: center;
+    }
   }
   .tagline {
     font-family: 'Poppins';
@@ -25,10 +34,22 @@
     /* identical to box height */
 
     color: #6287b6;
+    @media only screen and (max-width: 1025px) {
+      font-size: 16px;
+      line-height: 25px;
+    }
+    @media only screen and (max-width: 600px) {
+      font-size: 14px;
+      line-height: 25px;
+      text-align: center;
+    }
   }
 }
 
 .AboutTab {
+  .content {
+    margin-top: 40px;
+  }
   .text {
     font-family: 'Poppins';
     font-style: normal;
@@ -36,6 +57,14 @@
     font-size: 20px;
     line-height: 30px;
     color: #264b7a;
+    @media only screen and (max-width: 1025px) {
+      font-size: 18px;
+      line-height: 25px;
+    }
+    @media only screen and (max-width: 769px) {
+      font-size: 16px;
+      line-height: 22px;
+    }
   }
   .detailsItem {
     font-family: 'Poppins';
@@ -44,6 +73,14 @@
     font-size: 16px;
     line-height: 24px;
     color: #6287b6;
+    @media only screen and (max-width: 1025px) {
+      font-size: 15px;
+      line-height: 23px;
+    }
+    @media only screen and (max-width: 1025px) {
+      font-size: 14px;
+      line-height: 20px;
+    }
     .title {
       font-family: 'Poppins';
       font-style: normal;
@@ -51,6 +88,14 @@
       font-size: 20px;
       line-height: 30px;
       color: #264b7a;
+      @media only screen and (max-width: 1025px) {
+        font-size: 18px;
+        line-height: 25px;
+      }
+      @media only screen and (max-width: 769px) {
+        font-size: 16px;
+        line-height: 22px;
+      }
     }
   }
   .workTypeItem {
@@ -63,6 +108,14 @@
       /* identical to box height */
       text-align: center;
       color: #264b7a;
+      @media only screen and (max-width: 1025px) {
+        font-size: 18px;
+        line-height: 25px;
+      }
+      @media only screen and (max-width: 769px) {
+        font-size: 16px;
+        line-height: 22px;
+      }
     }
     .data {
       font-family: 'Poppins';
@@ -72,6 +125,14 @@
       line-height: 24px;
 
       color: #264b7a;
+      @media only screen and (max-width: 1025px) {
+        font-size: 15px;
+        line-height: 23px;
+      }
+      @media only screen and (max-width: 1025px) {
+        font-size: 14px;
+        line-height: 20px;
+      }
     }
   }
   .testimonials {
@@ -118,6 +179,11 @@
     &:last-child {
       margin-right: 0;
     }
+    @media only screen and (max-width: 769px) {
+      margin-right: 0;
+      margin-top: 10px;
+      grid-column: auto / span 12;
+    }
   }
   .col_8 {
     grid-column: auto / span 8;
@@ -127,6 +193,11 @@
     &:last-child {
       margin-right: 0;
     }
+    @media only screen and (max-width: 769px) {
+      margin-right: 0;
+      margin-top: 10px;
+      grid-column: auto / span 12;
+    }
   }
   .col_4 {
     grid-column: auto / span 4;
@@ -135,6 +206,11 @@
     }
     &:last-child {
       margin-right: 0;
+    }
+    @media only screen and (max-width: 769px) {
+      margin-right: 0;
+      margin-top: 10px;
+      grid-column: auto / span 12;
     }
   }
 }
@@ -152,7 +228,7 @@
   position: relative;
   padding-bottom: 60px;
   .tabs {
-    // margin-top: 60px;
+    margin-top: 60px;
     display: flex;
     gap: 20px;
     .tabItem {
@@ -165,6 +241,10 @@
       /* identical to box height */
 
       color: #6287b6;
+      @media only screen and (max-width: 1025px) {
+        font-size: 16px;
+        line-height: 24px;
+      }
       &.active {
         color: #ffffff;
       }
@@ -229,6 +309,7 @@
   gap: 20px;
   flex-wrap: wrap;
 }
+
 .contactTab {
   .content {
     padding: 30px 0;
@@ -236,6 +317,10 @@
       margin-bottom: 30px;
       flex-wrap: wrap;
       display: flex;
+      @media only screen and (max-width: 500px) {
+        justify-content: center;
+        align-items: center;
+      }
     }
     .form {
       margin-top: 80px;
@@ -255,6 +340,11 @@
         font-weight: 500;
         font-size: 14px;
         line-height: 21px;
+        @media only screen and (max-width: 1024px) {
+          font-size: 12px;
+          line-height: 18px;
+          padding: 12px 26px;
+        }
 
         color: #6287b6;
         &::placeholder {

@@ -6,7 +6,7 @@ import styles from '../../../styles/tab.module.scss'
 const AboutTab = (): JSX.Element => {
   return (
     <div className={styles.AboutTab}>
-      <div className="content">
+      <div className={styles.content}>
         <HeadingText title="About Me" />
         <div className={styles.row}>
           <div className={`${styles.col_6} ${styles.text}`}>
@@ -30,7 +30,7 @@ const AboutTab = (): JSX.Element => {
           </div>
         </div>
       </div>
-      <div className="content">
+      <div className={styles.content}>
         <HeadingText title="What I do" />
         <div className={styles.row}>
           <div className={`${styles.col_4} ${styles.text}`}>
@@ -61,7 +61,7 @@ const AboutTab = (): JSX.Element => {
           </div>
         </div>
       </div>
-      <div className="content">
+      <div className={styles.content}>
         <HeadingText title="Testimonials" />
         <div className={styles.testimonials}>
           <TestimonialCard

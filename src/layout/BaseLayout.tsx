@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image'
 
 import styles from '../../styles/BaseLayout.module.scss'
@@ -15,6 +15,7 @@ import Podcast from '../assets/icons/podcast.svg'
 import Contact from '../assets/icons/contact.svg'
 import Next from '../assets/icons/next.svg'
 import Prev from '../assets/icons/prev.svg'
+import Menu from '../assets/icons/menu.svg'
 import LinkedIn from '../assets/icons/linkedin.svg'
 import GitHub from '../assets/icons/github.svg'
 
@@ -25,6 +26,10 @@ interface Props {
 }
 
 const BaseLayout = (props: Props): JSX.Element => {
+  const [sideMenu, setSideMenu] = useState(false)
+  const openSideMenu = (): void => {
+    setSideMenu((prev) => !prev)
+  }
   return (
     <section className={styles.mainContainer}>
       <div className={styles.glass}>
@@ -58,7 +63,7 @@ const BaseLayout = (props: Props): JSX.Element => {
         <div className={styles.content}>{props.children}</div>
       </div>
       <div className={styles.sideSection}>
-        <div className={styles.sidebar_one}>
+        <div className={`${styles.sidebar_one} ${sideMenu ? styles.active : ''}`}>
           <div
             role="button"
             tabIndex={0}
@@ -139,6 +144,14 @@ const BaseLayout = (props: Props): JSX.Element => {
             className={styles.item}
           >
             <Prev />
+          </div>
+          <div
+            role="button"
+            tabIndex={0}
+            onClick={() => openSideMenu()}
+            className={`${styles.item} ${styles.menu}`}
+          >
+            <Menu />
           </div>
         </div>
       </div>
