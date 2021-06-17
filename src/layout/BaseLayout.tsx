@@ -40,12 +40,17 @@ const BaseLayout = (props: Props): JSX.Element => {
             </div>
             <div className={styles.name}>Sourav Layek</div>
             <div className={styles.designation}>Software Developer</div>
+            {/* social icons */}
             <div className={styles.socialIcons}>
               <div className={styles.s_icon}>
-                <LinkedIn />
+                <a href="https://google.com">
+                  <LinkedIn />
+                </a>
               </div>
               <div className={styles.s_icon}>
-                <GitHub />
+                <a href="https://google.com">
+                  <GitHub />
+                </a>
               </div>
             </div>
           </div>
@@ -62,12 +67,16 @@ const BaseLayout = (props: Props): JSX.Element => {
         </div>
         <div className={styles.content}>{props.children}</div>
       </div>
+      {/* side bars */}
       <div className={styles.sideSection}>
         <div className={`${styles.sidebar_one} ${sideMenu ? styles.active : ''}`}>
           <div
             role="button"
             tabIndex={0}
-            onClick={() => props.setActiveTab('set', 0)}
+            onClick={() => {
+              props.setActiveTab('set', 0)
+              openSideMenu()
+            }}
             className={props.currentTab === 0 ? styles.activeItem : styles.item}
           >
             <Home />
@@ -76,7 +85,10 @@ const BaseLayout = (props: Props): JSX.Element => {
           <div
             role="button"
             tabIndex={0}
-            onClick={() => props.setActiveTab('set', 1)}
+            onClick={() => {
+              props.setActiveTab('set', 1)
+              openSideMenu()
+            }}
             className={props.currentTab === 1 ? styles.activeItem : styles.item}
           >
             <About />
@@ -85,7 +97,10 @@ const BaseLayout = (props: Props): JSX.Element => {
           <div
             role="button"
             tabIndex={0}
-            onClick={() => props.setActiveTab('set', 2)}
+            onClick={() => {
+              props.setActiveTab('set', 2)
+              openSideMenu()
+            }}
             className={props.currentTab === 2 ? styles.activeItem : styles.item}
           >
             <Resume />
@@ -94,7 +109,10 @@ const BaseLayout = (props: Props): JSX.Element => {
           <div
             role="button"
             tabIndex={0}
-            onClick={() => props.setActiveTab('set', 3)}
+            onClick={() => {
+              props.setActiveTab('set', 3)
+              openSideMenu()
+            }}
             className={props.currentTab === 3 ? styles.activeItem : styles.item}
           >
             <Experience />
@@ -103,7 +121,10 @@ const BaseLayout = (props: Props): JSX.Element => {
           <div
             role="button"
             tabIndex={0}
-            onClick={() => props.setActiveTab('set', 4)}
+            onClick={() => {
+              props.setActiveTab('set', 4)
+              openSideMenu()
+            }}
             className={props.currentTab === 4 ? styles.activeItem : styles.item}
           >
             <Blogs />
@@ -112,7 +133,10 @@ const BaseLayout = (props: Props): JSX.Element => {
           <div
             role="button"
             tabIndex={0}
-            onClick={() => props.setActiveTab('set', 5)}
+            onClick={() => {
+              props.setActiveTab('set', 5)
+              openSideMenu()
+            }}
             className={props.currentTab === 5 ? styles.activeItem : styles.item}
           >
             <Podcast />
@@ -121,7 +145,10 @@ const BaseLayout = (props: Props): JSX.Element => {
           <div
             role="button"
             tabIndex={0}
-            onClick={() => props.setActiveTab('set', 6)}
+            onClick={() => {
+              props.setActiveTab('set', 6)
+              openSideMenu()
+            }}
             className={props.currentTab === 6 ? styles.activeItem : styles.item}
           >
             <Contact />

@@ -89,6 +89,7 @@ export default function Home(): JSX.Element {
             <div className="display">{TABS[activeTab]}</div>
           </CSSTransition>
         </BaseLayout>
+        <div className={styles.mobileCopyright}>© 2021 All rights reserved.</div>
       </main>
     </Fragment>
   )

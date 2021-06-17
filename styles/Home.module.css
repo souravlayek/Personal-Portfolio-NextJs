@@ -9,3 +9,27 @@
   justify-content: center;
   align-items: center;
 }
+.mobileCopyright {
+  display: none;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 12px;
+  color: #6287b6;
+
+}
+@media only screen and (max-width: 769px) {
+  .main {
+    position: relative;
+  }
+  .mobileCopyright {
+  display: inline-block;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 0;
+  flex-direction: row-reverse;
+  padding: 5px 10px;
+}
+}
