@@ -53,6 +53,7 @@ const BaseLayout = (props: Props): JSX.Element => {
               }}
             />
           </div>
+          <div className={styles.copyright}>© 2021 All rights reserved.</div>
         </div>
         <div className={styles.content}>{props.children}</div>
       </div>

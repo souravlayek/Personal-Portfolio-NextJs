@@ -50,6 +50,10 @@ div {
 .row {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
+  .col_12 {
+    grid-column: auto / span 12;
+    margin-bottom: 10px;
+  }
   .col_6 {
     grid-column: auto / span 6;
     &:nth-child(odd) {

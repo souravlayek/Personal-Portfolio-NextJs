@@ -2,14 +2,15 @@ import React from 'react'
 import styles from '../../../styles/components.module.scss'
 interface Props {
   title: string
-  action: () => void
+  action?: () => void
+  type?: 'submit' | 'reset' | 'button'
 }
 
 const Button = (props: Props): JSX.Element => {
   return (
-    <div className={styles.button}>
+    <button type={props.type ?? 'button'} className={styles.button}>
       <div className={styles.title}>{props.title}</div>
-    </div>
+    </button>
   )
 }
 

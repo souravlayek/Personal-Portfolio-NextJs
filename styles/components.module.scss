@@ -38,12 +38,15 @@
   }
 }
 .button {
+  border: none;
+  outline: none;
   cursor: pointer;
   margin: 10px 0;
   background: #3672e9;
   box-shadow: 0px 5px 8px rgba(54, 114, 233, 0.46);
   border-radius: 26px;
   padding: 12px 5px;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -434,5 +437,29 @@
 
       color: #6287b6;
     }
+  }
+}
+
+.iconCard {
+  margin: 20px 10px;
+  width: 279px;
+  height: 195px;
+  background: linear-gradient(151.27deg, rgba(255, 255, 255, 0.521) 1.68%, #ffffff79 100%);
+  box-shadow: 5px 4px 10px rgba(180, 178, 178, 0.25);
+  border-radius: 21px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  .title {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 27px;
+    text-align: center;
+
+    color: #6287b6;
   }
 }

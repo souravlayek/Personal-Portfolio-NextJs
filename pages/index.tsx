@@ -7,6 +7,7 @@ import {
   PortfolioScreen,
   BlogScreen,
   EmptyScreen,
+  ContactScreen,
 } from '../src/components/tabs'
 import BaseLayout from '../src/layout/BaseLayout'
 import styles from '../styles/Home.module.css'
@@ -50,6 +51,7 @@ export default function Home(): JSX.Element {
     <PortfolioScreen key={Math.random()} />,
     <BlogScreen key={Math.random()} />,
     <EmptyScreen title="Podcast" key={Math.random()} />,
+    <ContactScreen key={Math.random()} />,
   ]
 
   return (
