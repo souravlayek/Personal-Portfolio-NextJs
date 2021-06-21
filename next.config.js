@@ -17,7 +17,7 @@ const nextConfig = {
     return config
   },
   images: {
-    domains: ['raw.githubusercontent.com'],
+    domains: ['raw.githubusercontent.com', 'firebasestorage.googleapis.com'],
   },
 }
 

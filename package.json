@@ -11,6 +11,8 @@
     "postinstall": "husky install"
   },
   "dependencies": {
+    "firebase": "^8.6.8",
+    "firebase-admin": "^9.9.0",
     "formik": "^2.2.9",
     "next": "10.2.3",
     "node-sass": "4.14.1",

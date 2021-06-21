@@ -11,7 +11,12 @@ const HomeTab = (): JSX.Element => {
       <div className={styles.profile}>
         <div className={styles.user_info}>
           <div className={styles.profile_pic}>
-            <Image width="100%" height="100%" src="/images/profile.jpg" layout="responsive" />
+            <Image
+              width="100%"
+              height="100%"
+              src="https://firebasestorage.googleapis.com/v0/b/souravlayekportfolio.appspot.com/o/image.jpg?alt=media&token=502a1280-3325-4c72-a6bf-faa0478d5823"
+              layout="responsive"
+            />
           </div>
           <div className={styles.socialIcons}>
             <div className={styles.s_icon}>

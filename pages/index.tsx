@@ -12,6 +12,12 @@ import {
 import BaseLayout from '../src/layout/BaseLayout'
 import styles from '../styles/Home.module.css'
 import { CSSTransition } from 'react-transition-group'
+// import WriteToCloudFirestore from '../src/components/cloudFireStore/Write'
+import initFirebase from '../firebase/initFirebase'
+
+// call firebase
+
+initFirebase()
 
 export default function Home(): JSX.Element {
   const [activeTab, setActiveTab] = useState(0)
@@ -62,6 +68,7 @@ export default function Home(): JSX.Element {
       </Head>
 
       <main className={styles.main}>
+        {/* <WriteToCloudFirestore /> */}
         <BaseLayout
           currentTab={activeTab}
           setActiveTab={(type, pageIndex) => {
