@@ -17,6 +17,43 @@ const ContactMeTab = (): JSX.Element => {
     email: Yup.string().email('Invalid email').required('Required'),
     message: Yup.string().min(5, 'Too Short!').max(450, 'Too Long!').required('Required'),
   })
+
+  const handleSubmit = (value: any, actions: any) => {
+    console.log('Sending')
+    actions.setSubmitting(false)
+    const data = {
+      name: value.name,
+      email: value.email,
+      subject: value.subject,
+      message: value.message,
+    }
+    fetch('/api/contact', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json, text/plain, */*',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => {
+        console.log('Response received')
+        if (res.status === 200) {
+          console.log('Response succeeded!')
+          actions.resetForm({
+            values: {
+              name: '',
+              email: '',
+              subject: '',
+              message: '',
+            },
+          })
+        }
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
+
   return (
     <div className={styles.contactTab}>
       <HeadingText title="let's talk" />
@@ -38,9 +75,10 @@ const ContactMeTab = (): JSX.Element => {
                 message: '',
               }}
               validationSchema={validationSchema}
-              onSubmit={(values) => {
+              onSubmit={(values, actions) => {
                 // same shape as initial values
                 console.log(values)
+                handleSubmit(values, actions)
               }}
             >
               {({ errors, touched }) => (
