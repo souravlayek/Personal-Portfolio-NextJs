@@ -23,10 +23,15 @@ interface Props {
   children: React.ReactNode
   setActiveTab: (type: 'prev' | 'next' | 'set', tabNumber?: number) => void
   currentTab: number
+  data: string
+  image_url: string
 }
 
 const BaseLayout = (props: Props): JSX.Element => {
   const [sideMenu, setSideMenu] = useState(false)
+
+  const { data, image_url } = props
+
   const openSideMenu = (): void => {
     setSideMenu((prev) => !prev)
   }
@@ -36,15 +41,10 @@ const BaseLayout = (props: Props): JSX.Element => {
         <div className={styles.leftSection}>
           <div className={styles.user_info}>
             <div className={styles.profile_pic}>
-              <Image
-                width="100%"
-                height="100%"
-                src="https://firebasestorage.googleapis.com/v0/b/souravlayekportfolio.appspot.com/o/image.jpg?alt=media&token=502a1280-3325-4c72-a6bf-faa0478d5823"
-                layout="responsive"
-              />
+              <Image width="100%" height="100%" src={image_url} layout="responsive" />
             </div>
             <div className={styles.name}>Sourav Layek</div>
-            <div className={styles.designation}>Software Developer</div>
+            <div className={styles.designation}>{data}</div>
             {/* social icons */}
             <div className={styles.socialIcons}>
               <div className={styles.s_icon}>

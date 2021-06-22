@@ -5,18 +5,18 @@ import GitHub from '../../assets/icons/github.svg'
 import { Button, Input } from '../ui'
 import Image from 'next/image'
 
-const HomeTab = (): JSX.Element => {
+interface Props {
+  data: string
+  image_url: string
+}
+
+const HomeTab = (props: Props): JSX.Element => {
   return (
     <div className={styles.homeTabContainer}>
       <div className={styles.profile}>
         <div className={styles.user_info}>
           <div className={styles.profile_pic}>
-            <Image
-              width="100%"
-              height="100%"
-              src="https://firebasestorage.googleapis.com/v0/b/souravlayekportfolio.appspot.com/o/image.jpg?alt=media&token=502a1280-3325-4c72-a6bf-faa0478d5823"
-              layout="responsive"
-            />
+            <Image width="100%" height="100%" src={props.image_url} layout="responsive" />
           </div>
           <div className={styles.socialIcons}>
             <div className={styles.s_icon}>
@@ -33,7 +33,7 @@ const HomeTab = (): JSX.Element => {
         </div>
       </div>
       <div className={styles.heading}>Hi I’m Sourav.</div>
-      <div className={styles.tagline}>I am a front-end web and app developer.</div>
+      <div className={styles.tagline}>{props.data}</div>
       <div className={styles.cta}>
         <Input placeholder="Email Address" name="email" type="email" />
         <Button

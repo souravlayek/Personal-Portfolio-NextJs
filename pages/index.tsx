@@ -12,14 +12,22 @@ import {
 import BaseLayout from '../src/layout/BaseLayout'
 import styles from '../styles/Home.module.css'
 import { CSSTransition } from 'react-transition-group'
-// import WriteToCloudFirestore from '../src/components/cloudFireStore/Write'
+
 import initFirebase from '../firebase/initFirebase'
+import firebase from 'firebase/app'
+import { GetStaticProps } from 'next'
 
 // call firebase
 
 initFirebase()
 
-export default function Home(): JSX.Element {
+interface Props {
+  data: any
+}
+
+export default function Home(props: Props): JSX.Element {
+  const { about, projects, resume } = props.data
+
   const [activeTab, setActiveTab] = useState(0)
   const [transitionOn, setTransitionOn] = useState(false)
   const handleTabChange = (type: 'prev' | 'next' | 'set', pageIndex?: number): void => {
@@ -50,10 +58,14 @@ export default function Home(): JSX.Element {
   }
 
   const TABS: Array<React.ReactNode> = [
-    <HomeScreen key={Math.random()} />,
-    <AboutScreen key={Math.random()} />,
-    <ResumeScreen key={Math.random()} />,
-    <PortfolioScreen key={Math.random()} />,
+    <HomeScreen
+      key={Math.random()}
+      image_url={props.data['base-details'].image}
+      data={props.data['base-details'].tagline}
+    />,
+    <AboutScreen key={Math.random()} data={about} />,
+    <ResumeScreen key={Math.random()} data={resume} />,
+    <PortfolioScreen key={Math.random()} data={projects} />,
     <BlogScreen key={Math.random()} />,
     <EmptyScreen title="Podcast" key={Math.random()} />,
     <ContactScreen key={Math.random()} />,
@@ -68,8 +80,9 @@ export default function Home(): JSX.Element {
       </Head>
 
       <main className={styles.main}>
-        {/* <WriteToCloudFirestore /> */}
         <BaseLayout
+          image_url={props.data['base-details'].image}
+          data={props.data['base-details'].main_tag}
           currentTab={activeTab}
           setActiveTab={(type, pageIndex) => {
             if (
@@ -99,4 +112,27 @@ export default function Home(): JSX.Element {
       </main>
     </Fragment>
   )
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+  let posts: any = {}
+  try {
+    // await the promise
+    const querySnapshot = await firebase.firestore().collection('home').get()
+
+    // "then" part after the await
+    querySnapshot.forEach(function (doc) {
+      posts = { ...posts, [doc.id]: doc.data() }
+    })
+  } catch (error) {
+    // catch part using try/catch
+    console.log('Error getting documents: ', error)
+    // return something else here, or an empty props, or throw an exception or whatever
+  }
+
+  return {
+    props: {
+      data: posts,
+    },
+  }
 }

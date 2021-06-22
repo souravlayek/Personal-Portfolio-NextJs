@@ -2,9 +2,12 @@ import React from 'react'
 import styles from '../../../styles/tab.module.scss'
 import { HeadingText, TimelineItem, ProgressBar } from '../ui'
 
-// interface Props {}
+interface Props {
+  data: any
+}
 
-const ResumeTab = (): JSX.Element => {
+const ResumeTab = (props: Props): JSX.Element => {
+  const { experience, dev_skills, professional_skills } = props.data
   return (
     <div className={styles.resumeTab}>
       <HeadingText title="Resume" />
@@ -12,53 +15,33 @@ const ResumeTab = (): JSX.Element => {
         <div className={styles.col_8}>
           <HeadingText title="Experience" subheading />
           <div className={styles.contentBlock}>
-            <TimelineItem
-              timeSpan="2020 Dec - 2021 Mar"
-              title="Lead Front-end Developer"
-              company="Lapolo"
-              companyCation="@demoCaption"
-              data="Back again to lapolo with a new post as lead front end developer. Uses react js and build three major websites and also get love from the team members."
-            />
-            <TimelineItem
-              timeSpan="2020 Dec - 2021 Mar"
-              title="Lead Front-end Developer"
-              company="Lapolo"
-              companyCation="@demoCaption"
-              data="Back again to lapolo with a new post as lead front end developer. Uses react js and build three major websites and also get love from the team members."
-            />
-            <TimelineItem
-              timeSpan="2020 Dec - 2021 Mar"
-              title="Lead Front-end Developer"
-              company="Lapolo"
-              companyCation="@demoCaption"
-              data="Back again to lapolo with a new post as lead front end developer. Uses react js and build three major websites and also get love from the team members."
-            />
-            <TimelineItem
-              timeSpan="2020 Dec - 2021 Mar"
-              title="Lead Front-end Developer"
-              company="Lapolo"
-              companyCation="@demoCaption"
-              data="Back again to lapolo with a new post as lead front end developer. Uses react js and build three major websites and also get love from the team members."
-            />
+            {experience?.map((item: any) => (
+              <TimelineItem
+                key={Math.random()}
+                timeSpan={`${item?.start_time} - ${item?.end_time}`}
+                title={item?.title}
+                company={item?.worked_for}
+                companyCation={item?.additional_details}
+                data={item?.about}
+              />
+            ))}
           </div>
         </div>
         <div className={styles.col_4}>
           <div className="skillContainer">
             <HeadingText title="Development Skills" subheading />
             <div className={styles.contentBlock}>
-              <ProgressBar title="React JS" value={60} />
-              <ProgressBar title="Next JS" value={80} />
-              <ProgressBar title="React-Native" value={20} />
-              <ProgressBar title="Flutter" value={70} />
+              {dev_skills?.map((item: any) => (
+                <ProgressBar key={Math.random()} title={item?.title} value={item?.value} />
+              ))}
             </div>
           </div>
           <div className="skillContainer">
             <HeadingText title="Professional Skills" subheading />
             <div className={styles.contentBlock}>
-              <ProgressBar title="React JS" value={60} />
-              <ProgressBar title="Next JS" value={80} />
-              <ProgressBar title="React-Native" value={20} />
-              <ProgressBar title="Flutter" value={70} />
+              {professional_skills?.map((item: any) => (
+                <ProgressBar key={Math.random()} title={item?.title} value={item?.value} />
+              ))}
             </div>
           </div>
         </div>
