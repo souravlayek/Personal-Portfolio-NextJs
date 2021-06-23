@@ -79,7 +79,13 @@ const BaseLayout = (props: Props): JSX.Element => {
         <div className={styles.leftSection}>
           <div className={styles.user_info}>
             <div className={styles.profile_pic}>
-              <Image width="100%" height="100%" src={image_url} layout="responsive" />
+              <Image
+                width="100%"
+                height="100%"
+                src={image_url}
+                layout="responsive"
+                objectFit="cover"
+              />
             </div>
             <div className={styles.name}>Sourav Layek</div>
             <div className={styles.designation}>{data}</div>

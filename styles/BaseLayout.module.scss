@@ -1,3 +1,5 @@
+@import './constant.scss';
+
 .mainContainer {
   position: relative;
   display: flex;
@@ -8,16 +10,9 @@
     height: 90vh;
     max-width: 1596px;
     max-height: 936px;
-    background: linear-gradient(
-      108.98deg,
-      rgba(255, 255, 255, 0.48) 0%,
-      rgba(255, 255, 255, 0.12) 100%
-    );
-    backdrop-filter: blur(75px);
-    -webkit-backdrop-filter: blur(6.5px);
-    border-radius: 10px;
-    border: 2px solid rgba(255, 255, 255, 0.18);
-    border-radius: 30px;
+
+    @include glassProperty;
+
     .leftSection {
       position: relative;
       padding: 72px 0;
@@ -25,24 +20,21 @@
       flex-direction: column;
       align-items: center;
       width: 25%;
-      height: 100%;
+      height: calc(100% + 6px);
+      transform: translate(-3px, -3px);
+      @include glassProperty;
       background: linear-gradient(
         108.98deg,
-        rgba(255, 255, 255, 0.48) 0%,
-        rgba(255, 255, 255, 0.12) 100%
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(255, 255, 255, 0.1) 100%
       );
-      backdrop-filter: blur(75px);
-      -webkit-backdrop-filter: blur(6.5px);
-      border-radius: 10px;
-      border: 2px solid rgba(255, 255, 255, 0.18);
-      border-radius: 30px;
-
       .user_info {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         .profile_pic {
+          border: 3px solid #ffffff55;
           width: 172px;
           height: 172px;
           border-radius: 50%;
@@ -53,28 +45,22 @@
           }
         }
         .name {
-          font-family: 'Poppins';
-          font-style: normal;
           font-weight: bold;
           font-size: 25px;
           line-height: 37px;
-          /* identical to box height */
+          @include textStyle;
 
-          color: #6287b6;
           @media only screen and (max-width: 1024px) {
             font-size: 20px;
             line-height: 30px;
           }
         }
         .designation {
-          font-family: Poppins;
-          font-style: normal;
           font-weight: normal;
           font-size: 18px;
           line-height: 27px;
-          /* identical to box height */
+          @include textStyle;
 
-          color: #6287b6;
           @media only screen and (max-width: 1024px) {
             font-size: 16px;
             line-height: 25px;
@@ -105,12 +91,16 @@
         left: 50%;
         transform: translateX(-50%);
         justify-content: flex-end;
-        font-family: 'Poppins';
-        font-style: normal;
         font-weight: normal;
         font-size: 12px;
         line-height: 24px;
-        color: #6287b6;
+
+        @include textStyle;
+
+        @media only screen and (max-width: 1369px) {
+          width: 90%;
+          text-align: center;
+        }
         @media only screen and (max-width: 1024px) {
           font-size: 10px;
           line-height: 24px;
@@ -124,6 +114,7 @@
     .content {
       padding: 5%;
       width: 75%;
+      overflow: hidden;
       overflow-y: auto;
       &::-webkit-scrollbar {
         width: 8px;
@@ -132,6 +123,7 @@
 
       /* Track */
       &::-webkit-scrollbar-track {
+        margin: 30px 0;
         background: none;
       }
 
@@ -189,15 +181,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    background: linear-gradient(
-      108.98deg,
-      rgba(255, 255, 255, 0.48) 0%,
-      rgba(255, 255, 255, 0.12) 100%
-    );
-    backdrop-filter: blur(75px);
-    -webkit-backdrop-filter: blur(6.5px);
-    border-radius: 10px;
-    border: 2px solid rgba(255, 255, 255, 0.18);
+    @include glassProperty;
     border-radius: 30px;
     .item {
       position: relative;
@@ -210,27 +194,24 @@
       justify-content: center;
       align-items: center;
       border-radius: 50%;
-      svg {
-        filter: drop-shadow(2px 2px 2px rgba(181, 181, 181, 0.25));
-      }
       background: transparent;
-      box-shadow: 0px 0px 0px transparent;
+      // box-shadow: 0px 0px 0px transparent;
       border: 0px solid transparent;
-      text-shadow: 0px 0px 0px transparent;
+      // text-shadow: 0px 0px 0px transparent;
     }
     .tooltip {
       visibility: hidden;
       width: max-content;
       height: fit-content;
-      background-color: rgba(0, 0, 0, 0.403);
-      color: #fff;
+      @include glassProperty;
+      @include textStyle;
       text-align: center;
       padding: 5px 10px;
       border-radius: 6px;
 
       /* Position the tooltip text - see examples below! */
       top: 5px;
-      right: 105%;
+      right: 110%;
       position: absolute;
       z-index: 3;
       &::after {
@@ -239,23 +220,21 @@
         top: 50%;
         left: 100%; /* To the right of the tooltip */
         margin-top: -5px;
-        border-width: 5px;
-        border-style: solid;
-        border-color: transparent transparent transparent rgba(0, 0, 0, 0.403);
+        @include glassProperty;
       }
     }
     .item:hover .tooltip {
       visibility: visible;
     }
-    .activeItem:hover .tooltip {
-      visibility: visible;
-    }
+    // .activeItem:hover .tooltip {
+    //   visibility: visible;
+    // }
     .activeItem {
       cursor: pointer;
       background: transparent;
-      box-shadow: 0px 0px 0px transparent;
+      // box-shadow: 0px 0px 0px transparent;
       border: 0px solid transparent;
-      text-shadow: 0px 0px 0px transparent;
+      // text-shadow: 0px 0px 0px transparent;
       transition: all 0.3s ease-in-out;
       margin: 5px;
       width: 43px;
@@ -264,18 +243,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(
-        108.98deg,
-        rgba(255, 255, 255, 0.48) 0%,
-        rgba(255, 255, 255, 0.12) 100%
-      );
-      backdrop-filter: blur(75px);
-      -webkit-backdrop-filter: blur(6.5px);
-      // border-radius: 10px;
-      border: 2px solid rgba(255, 255, 255, 0.18);
-      svg {
-        filter: drop-shadow(2px 2px 2px rgba(181, 181, 181, 0.25));
-      }
+      @include glassProperty;
     }
   }
   .sidebar_two {
@@ -284,15 +252,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    background: linear-gradient(
-      108.98deg,
-      rgba(255, 255, 255, 0.48) 0%,
-      rgba(255, 255, 255, 0.12) 100%
-    );
-    backdrop-filter: blur(75px);
-    -webkit-backdrop-filter: blur(6.5px);
-    border-radius: 10px;
-    border: 2px solid rgba(255, 255, 255, 0.18);
+    @include glassProperty;
     border-radius: 30px;
     .item {
       width: 43px;
@@ -335,32 +295,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Poppins';
-  font-style: normal;
+
   font-weight: 500;
   font-size: 14px;
   line-height: 21px;
 
-  color: #6287b6;
+  @include textStyle;
+
   &::placeholder {
-    color: rgba(98, 135, 182, 0.8);
+    color: rgba(255, 255, 255, 0.6);
   }
-  background: linear-gradient(
-    108.98deg,
-    rgba(255, 255, 255, 0.32) 0%,
-    rgba(255, 255, 255, 0.08) 100%
-  );
-  backdrop-filter: blur(75px);
-  /* Note: backdrop-filter has minimal browser support */
 
-  border-radius: 30px;
-  border: 3px solid;
-
-  border-image-source: linear-gradient(
-    108.98deg,
-    rgba(255, 255, 255, 0.36) 0%,
-    rgba(255, 255, 255, 0.09) 100%
-  );
+  @include glassProperty;
 }
 .errorMessage {
   margin-left: 30px;
