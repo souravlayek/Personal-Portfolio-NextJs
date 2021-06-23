@@ -5,6 +5,7 @@ export default function (req: NextApiRequest, res: NextApiResponse): void {
   require('dotenv').config()
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   const nodemailer = require('nodemailer')
+  console.log(process.env)
   const transporter = nodemailer.createTransport({
     port: 465,
     host: 'smtp.gmail.com',
