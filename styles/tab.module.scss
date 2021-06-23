@@ -54,6 +54,7 @@
       justify-content: center;
       align-items: center;
       .profile_pic {
+        border: 3px solid #ffffff55;
         width: 172px;
         height: 172px;
         border-radius: 50%;
@@ -280,9 +281,12 @@
   .portfolioItemList {
     margin-top: 30px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     gap: 20px;
     flex-wrap: wrap;
+    @media only screen and (max-width: 1369px) {
+      gap: 10px;
+    }
   }
   .backButton {
     cursor: pointer;
@@ -314,9 +318,12 @@
 .blogList {
   margin-top: 30px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   gap: 20px;
   flex-wrap: wrap;
+  @media only screen and (max-width: 1369px) {
+    gap: 10px;
+  }
 }
 
 .contactTab {

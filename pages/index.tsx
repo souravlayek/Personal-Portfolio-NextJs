@@ -66,7 +66,8 @@ export default function Home(props: Props): JSX.Element {
     <AboutScreen key={Math.random()} data={about} />,
     <ResumeScreen key={Math.random()} data={resume} />,
     <PortfolioScreen key={Math.random()} data={projects} />,
-    <BlogScreen key={Math.random()} />,
+    // <BlogScreen key={Math.random()} />,
+    <EmptyScreen title="Blogs" key={Math.random()} />,
     <EmptyScreen title="Podcast" key={Math.random()} />,
     <ContactScreen key={Math.random()} />,
   ]

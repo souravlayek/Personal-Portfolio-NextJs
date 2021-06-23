@@ -52,7 +52,15 @@ const HomeTab = (props: Props): JSX.Element => {
       <div className={styles.profile}>
         <div className={styles.user_info}>
           <div className={styles.profile_pic}>
-            <Image width="100%" height="100%" src={props.image_url} layout="responsive" />
+            <Image
+              width="100%"
+              height="100%"
+              src={props.image_url}
+              layout="responsive"
+              objectFit="cover"
+              placeholder="blur"
+              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/+v/ZAAJhQONY7moDwAAAABJRU5ErkJggg=="
+            />
           </div>
           <div className={styles.socialIcons}>
             <div className={styles.s_icon}>

@@ -11,12 +11,13 @@
 }
 .mobileCopyright {
   display: none;
-  font-family: 'Poppins';
-  font-style: normal;
   font-weight: normal;
   font-size: 10px;
   line-height: 12px;
-  color: #6287b6;
+  font-family: 'Poppins';
+  font-style: normal;
+  color: rgba(255, 255, 255, 0.75);
+  text-shadow: 5px 4px 4px rgba(168, 168, 168, 0.25);
 
 }
 @media only screen and (max-width: 769px) {
