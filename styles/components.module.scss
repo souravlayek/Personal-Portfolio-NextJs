@@ -163,7 +163,7 @@
   .cardBody {
     @include glassProperty;
     padding: 25px;
-    padding-top: 100px;
+    padding-top: 60px;
     position: relative;
     max-width: 323px;
     min-height: 433px;
@@ -176,6 +176,7 @@
       @include textStyle;
     }
     .quoteBackground {
+      opacity: 0.5;
       position: absolute;
       width: 174px;
       height: 138px;
@@ -184,7 +185,7 @@
       z-index: -1;
     }
     .userDetails {
-      margin-top: 40px;
+      margin-top: 20px;
       .name {
         font-weight: bold;
         font-size: 18px;
@@ -192,10 +193,10 @@
         @include textStyle;
       }
       .company {
-        margin-top: 10px;
+        margin-top: 5px;
         font-weight: normal;
         font-size: 16px;
-        line-height: 24px;
+        line-height: 20px;
         @include textStyle;
       }
     }

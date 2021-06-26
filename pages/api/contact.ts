@@ -8,7 +8,7 @@ export default function (req: NextApiRequest, res: NextApiResponse): void {
   console.log(process.env)
   const transporter = nodemailer.createTransport({
     port: 465,
-    host: 'smtp.gmail.com',
+    host: 'gmail',
     auth: {
       user: 'layeksourav4@gmail.com',
       pass: process.env.password,

@@ -5,7 +5,7 @@ import {
   HomeScreen,
   ResumeScreen,
   PortfolioScreen,
-  BlogScreen,
+  // BlogScreen,
   EmptyScreen,
   ContactScreen,
 } from '../src/components/tabs'
@@ -75,9 +75,13 @@ export default function Home(props: Props): JSX.Element {
   return (
     <Fragment>
       <Head>
-        <title>Sourav Layek</title>
-        <meta name="description" content="This is our base app" />
-        <link rel="icon" href="/favicon.ico" />
+        {/* <!-- Primary Meta Tags --> */}
+        <title>Sourav Layek - Front-End Developer and Content Creator</title>
+        <meta name="title" content="Sourav Layek - Front-End Developer and Content Creator" />
+        <meta
+          name="description"
+          content="I am Sourav a front-end developer who powers websites with the most popular Next js and React Js and also works on mobile with React-Native and Flutter."
+        />
       </Head>
 
       <main className={styles.main}>
