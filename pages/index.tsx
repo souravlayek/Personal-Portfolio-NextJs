@@ -82,6 +82,12 @@ export default function Home(props: Props): JSX.Element {
           name="description"
           content="I am Sourav a front-end developer who powers websites with the most popular Next js and React Js and also works on mobile with React-Native and Flutter."
         />
+        <meta charSet="utf-8" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1,
+      shrink-to-fit=no"
+        />
       </Head>
 
       <main className={styles.main}>

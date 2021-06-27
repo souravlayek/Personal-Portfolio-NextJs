@@ -1,24 +1,31 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from '../../../styles/tab.module.scss'
 import LinkedIn from '../../assets/icons/linkedin.svg'
 import GitHub from '../../assets/icons/github.svg'
 import { Button } from '../ui'
 import Image from 'next/image'
-import { Formik, Form, Field } from 'formik'
-
+import { Formik, Form, Field, FormikHelpers } from 'formik'
 import * as Yup from 'yup'
+import { useToasts } from 'react-toast-notifications'
 
 interface Props {
   data: string
   image_url: string
 }
+interface MyFormProps {
+  email: string
+}
+
 const HomeTab = (props: Props): JSX.Element => {
+  const { addToast } = useToasts()
+  const [loading, setLoading] = useState(false)
+
   const validationSchema = Yup.object().shape({
     email: Yup.string().email('Invalid email').required('Required'),
   })
 
-  const handleSubmit = (value: any, actions: any) => {
-    console.log('Sending')
+  const handleSubmit = (value: MyFormProps, actions: FormikHelpers<MyFormProps>): void => {
+    setLoading(true)
     actions.setSubmitting(false)
     const data = {
       email: value.email,
@@ -32,9 +39,11 @@ const HomeTab = (props: Props): JSX.Element => {
       body: JSON.stringify(data),
     })
       .then((res) => {
+        setLoading(false)
         console.log('Response received')
         if (res.status === 200) {
           console.log('Response succeeded!')
+          addToast('Thanks for connecting..', { appearance: 'success', autoDismiss: true })
           actions.resetForm({
             values: {
               email: '',
@@ -43,7 +52,9 @@ const HomeTab = (props: Props): JSX.Element => {
         }
       })
       .catch((err) => {
+        setLoading(false)
         console.log(err)
+        addToast('Sorry! something went wrong.', { appearance: 'error', autoDismiss: true })
       })
   }
 
@@ -96,7 +107,7 @@ const HomeTab = (props: Props): JSX.Element => {
               {errors.email && touched.email && (
                 <div className={styles.errorMessage}>{errors.email}</div>
               )}
-              <Button title="Connect With Me" type="submit" />
+              <Button title="Connect With Me" type="submit" loading={loading} />
             </Form>
           )}
         </Formik>

@@ -1,16 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { HeadingText, IconCard, Button } from '../ui'
 import LocationIcon from '../../assets/icons/location.svg'
 import MailIcon from '../../assets/icons/mail.svg'
 import CallIcon from '../../assets/icons/call.svg'
 import FreelanceIcon from '../../assets/icons/freelance.svg'
-import { Formik, Form, Field } from 'formik'
+import { Formik, Form, Field, FormikHelpers } from 'formik'
 
 import * as Yup from 'yup'
 
 import styles from '../../../styles/tab.module.scss'
+import { useToasts } from 'react-toast-notifications'
+
+interface MyFormValues {
+  name: string
+  email: string
+  subject: string
+  message: string
+}
 
 const ContactMeTab = (): JSX.Element => {
+  const { addToast } = useToasts()
+  const [loading, setLoading] = useState(false)
+
   const validationSchema = Yup.object().shape({
     name: Yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required('Required'),
     subject: Yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required('Required'),
@@ -18,10 +29,11 @@ const ContactMeTab = (): JSX.Element => {
     message: Yup.string().min(5, 'Too Short!').max(450, 'Too Long!').required('Required'),
   })
 
-  const handleSubmit = (value: any, actions: any) => {
+  const handleSubmit = (value: MyFormValues, actions: FormikHelpers<MyFormValues>): void => {
     console.log('Sending')
+    setLoading(true)
     actions.setSubmitting(false)
-    const data = {
+    const data: MyFormValues = {
       name: value.name,
       email: value.email,
       subject: value.subject,
@@ -39,6 +51,9 @@ const ContactMeTab = (): JSX.Element => {
         console.log('Response received')
         if (res.status === 200) {
           console.log('Response succeeded!')
+          addToast('Thanks for contacting me..', { appearance: 'success', autoDismiss: true })
+          addToast('I will get back to you soon..', { appearance: 'success', autoDismiss: true })
+          setLoading(false)
           actions.resetForm({
             values: {
               name: '',
@@ -51,6 +66,8 @@ const ContactMeTab = (): JSX.Element => {
       })
       .catch((err) => {
         console.log(err)
+        addToast('Sorry! something went wrong.', { appearance: 'error', autoDismiss: true })
+        setLoading(false)
       })
   }
 
@@ -76,8 +93,6 @@ const ContactMeTab = (): JSX.Element => {
               }}
               validationSchema={validationSchema}
               onSubmit={(values, actions) => {
-                // same shape as initial values
-                console.log(values)
                 handleSubmit(values, actions)
               }}
             >
@@ -118,7 +133,7 @@ const ContactMeTab = (): JSX.Element => {
                       )}
                     </div>
                     <div style={{ marginTop: '10px' }} className="col_4">
-                      <Button type="submit" title="Send Message" />
+                      <Button type="submit" title="Send Message" loading={loading} />
                     </div>
                   </div>
                 </Form>

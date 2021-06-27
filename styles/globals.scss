@@ -97,3 +97,10 @@ div {
     }
   }
 }
+.circle {
+  display: inline-block;
+  background-color: orange;
+  height: 15px;
+  width: 15px;
+  border-radius: 25px;
+}

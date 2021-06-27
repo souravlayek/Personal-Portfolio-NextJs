@@ -3,10 +3,11 @@ import Image from 'next/image'
 
 import styles from '../../styles/BaseLayout.module.scss'
 
-import { Button, Input } from '../components/ui'
+import { Button } from '../components/ui'
 import { Formik, Form, Field } from 'formik'
 
 import * as Yup from 'yup'
+import { useToasts } from 'react-toast-notifications'
 
 // icons
 import Home from '../assets/icons/home.svg'
@@ -48,6 +49,9 @@ const toBase64 = (str: string) =>
   typeof window === 'undefined' ? Buffer.from(str).toString('base64') : window.btoa(str)
 
 const BaseLayout = (props: Props): JSX.Element => {
+  const { addToast } = useToasts()
+  const [loading, setLoading] = useState(false)
+
   const validationSchema = Yup.object().shape({
     email: Yup.string().email('Invalid email').required('Required'),
   })
@@ -60,12 +64,13 @@ const BaseLayout = (props: Props): JSX.Element => {
     setSideMenu((prev) => !prev)
   }
 
-  const handleSubmit = (value: any, actions: any) => {
+  const handleSubmit = (value: any, actions: any): void => {
     console.log('Sending')
     actions.setSubmitting(false)
     const data = {
       email: value.email,
     }
+    setLoading(true)
     fetch('/api/connect', {
       method: 'POST',
       headers: {
@@ -78,6 +83,8 @@ const BaseLayout = (props: Props): JSX.Element => {
         console.log('Response received')
         if (res.status === 200) {
           console.log('Response succeeded!')
+          addToast('Thanks for connecting..', { appearance: 'success', autoDismiss: true })
+          setLoading(false)
           actions.resetForm({
             values: {
               email: '',
@@ -87,6 +94,8 @@ const BaseLayout = (props: Props): JSX.Element => {
       })
       .catch((err) => {
         console.log(err)
+        addToast('Sorry! something went wrong.', { appearance: 'error', autoDismiss: true })
+        setLoading(false)
       })
   }
 
@@ -140,7 +149,7 @@ const BaseLayout = (props: Props): JSX.Element => {
                   {errors.email && touched.email && (
                     <div className={styles.errorMessage}>{errors.email}</div>
                   )}
-                  <Button title="Connect With Me" type="submit" />
+                  <Button title="Connect With Me" type="submit" loading={loading} />
                 </Form>
               )}
             </Formik>
