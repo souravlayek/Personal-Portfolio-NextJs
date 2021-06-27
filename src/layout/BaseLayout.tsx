@@ -65,7 +65,7 @@ const BaseLayout = (props: Props): JSX.Element => {
   }
 
   const handleSubmit = (value: any, actions: any): void => {
-    console.log('Sending')
+    // console.log('Sending')
     actions.setSubmitting(false)
     const data = {
       email: value.email,
@@ -80,9 +80,9 @@ const BaseLayout = (props: Props): JSX.Element => {
       body: JSON.stringify(data),
     })
       .then((res) => {
-        console.log('Response received')
+        // console.log('Response received')
         if (res.status === 200) {
-          console.log('Response succeeded!')
+          // console.log('Response succeeded!')
           addToast('Thanks for connecting..', { appearance: 'success', autoDismiss: true })
           setLoading(false)
           actions.resetForm({
@@ -92,8 +92,8 @@ const BaseLayout = (props: Props): JSX.Element => {
           })
         }
       })
-      .catch((err) => {
-        console.log(err)
+      .catch(() => {
+        // console.log(err)
         addToast('Sorry! something went wrong.', { appearance: 'error', autoDismiss: true })
         setLoading(false)
       })
@@ -120,12 +120,12 @@ const BaseLayout = (props: Props): JSX.Element => {
             {/* social icons */}
             <div className={styles.socialIcons}>
               <div className={styles.s_icon}>
-                <a href="https://google.com">
+                <a href="https://www.linkedin.com/in/souravlayek/">
                   <LinkedIn />
                 </a>
               </div>
               <div className={styles.s_icon}>
-                <a href="https://google.com">
+                <a href="https://github.com/souravlayek">
                   <GitHub />
                 </a>
               </div>
@@ -139,7 +139,7 @@ const BaseLayout = (props: Props): JSX.Element => {
               validationSchema={validationSchema}
               onSubmit={(values, actions) => {
                 // same shape as initial values
-                console.log(values)
+                // console.log(values)
                 handleSubmit(values, actions)
               }}
             >

@@ -22,6 +22,6 @@ export default function initFirebase(): void {
         // firebase.performance()
       }
     }
-    console.log('firebase is successfully init')
+    // console.log('firebase is successfully init')
   }
 }

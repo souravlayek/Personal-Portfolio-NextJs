@@ -40,9 +40,9 @@ const HomeTab = (props: Props): JSX.Element => {
     })
       .then((res) => {
         setLoading(false)
-        console.log('Response received')
+        // console.log('Response received')
         if (res.status === 200) {
-          console.log('Response succeeded!')
+          // console.log('Response succeeded!')
           addToast('Thanks for connecting..', { appearance: 'success', autoDismiss: true })
           actions.resetForm({
             values: {
@@ -51,9 +51,9 @@ const HomeTab = (props: Props): JSX.Element => {
           })
         }
       })
-      .catch((err) => {
+      .catch(() => {
         setLoading(false)
-        console.log(err)
+        // console.log(err)
         addToast('Sorry! something went wrong.', { appearance: 'error', autoDismiss: true })
       })
   }
@@ -75,12 +75,12 @@ const HomeTab = (props: Props): JSX.Element => {
           </div>
           <div className={styles.socialIcons}>
             <div className={styles.s_icon}>
-              <a href="https://google.com">
+              <a href="https://www.linkedin.com/in/souravlayek/">
                 <LinkedIn />
               </a>
             </div>
             <div className={styles.s_icon}>
-              <a href="https://google.com">
+              <a href="https://github.com/souravlayek">
                 <GitHub />
               </a>
             </div>
@@ -97,7 +97,7 @@ const HomeTab = (props: Props): JSX.Element => {
           validationSchema={validationSchema}
           onSubmit={(values, actions) => {
             // same shape as initial values
-            console.log(values)
+            // console.log(values)
             handleSubmit(values, actions)
           }}
         >

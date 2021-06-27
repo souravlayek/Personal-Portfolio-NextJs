@@ -12,13 +12,17 @@ const BlogTab = (): JSX.Element => {
           date={new Date()}
           name="Lorem ipsum dolor, sit amet consectetur adipisicing elit."
           image="/images/profile.jpg"
-          onClick={() => console.log('Clicked')}
+          onClick={() => {
+            // hello
+          }}
         />
         <BlogCard
           date={new Date()}
           name="Lorem ipsum dolor, sit amet consectetur adipisicing elit."
           image="/images/profile.jpg"
-          onClick={() => console.log('Clicked')}
+          onClick={() => {
+            // hello
+          }}
         />
       </div>
     </div>

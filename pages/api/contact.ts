@@ -347,14 +347,16 @@ export default function (req: NextApiRequest, res: NextApiResponse): void {
 
   if (req.method === 'POST') {
     transporter.sendMail(mailData, function (err: any, info: any) {
-      if (err) console.log('err', err)
-      else {
-        console.log('info', info)
+      if (err) {
+        // console.log('err', err)
+      } else {
+        // console.log('info', info)
         res.status(200).json({ message: 'Message sent' })
         transporter.sendMail(responseMailData, function (err: any, info: any) {
-          if (err) console.log('err', err)
-          else {
-            console.log('info', info)
+          if (err) {
+            // console.log('err', err)
+          } else {
+            // console.log('info', info)
           }
         })
       }

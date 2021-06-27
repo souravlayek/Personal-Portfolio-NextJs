@@ -20,7 +20,7 @@ const WriteToCloudFirestore = (): JSX.Element => {
         })
         .then(() => alert('data successfully send to backend'))
     } catch (error) {
-      console.log(error)
+      // console.log(error)
     }
   }
 

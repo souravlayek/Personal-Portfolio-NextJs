@@ -30,7 +30,7 @@ const ContactMeTab = (): JSX.Element => {
   })
 
   const handleSubmit = (value: MyFormValues, actions: FormikHelpers<MyFormValues>): void => {
-    console.log('Sending')
+    // console.log('Sending')
     setLoading(true)
     actions.setSubmitting(false)
     const data: MyFormValues = {
@@ -48,9 +48,9 @@ const ContactMeTab = (): JSX.Element => {
       body: JSON.stringify(data),
     })
       .then((res) => {
-        console.log('Response received')
+        // console.log('Response received')
         if (res.status === 200) {
-          console.log('Response succeeded!')
+          // console.log('Response succeeded!')
           addToast('Thanks for contacting me..', { appearance: 'success', autoDismiss: true })
           addToast('I will get back to you soon..', { appearance: 'success', autoDismiss: true })
           setLoading(false)
@@ -64,8 +64,8 @@ const ContactMeTab = (): JSX.Element => {
           })
         }
       })
-      .catch((err) => {
-        console.log(err)
+      .catch(() => {
+        // console.log(err)
         addToast('Sorry! something went wrong.', { appearance: 'error', autoDismiss: true })
         setLoading(false)
       })

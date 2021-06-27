@@ -137,7 +137,7 @@ export const getStaticProps: GetStaticProps = async () => {
     })
   } catch (error) {
     // catch part using try/catch
-    console.log('Error getting documents: ', error)
+    // console.log('Error getting documents: ', error)
     // return something else here, or an empty props, or throw an exception or whatever
   }
 
