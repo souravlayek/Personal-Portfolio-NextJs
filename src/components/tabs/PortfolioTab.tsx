@@ -69,7 +69,7 @@ const PortfolioTab = (props: Props): JSX.Element => {
               <div className="col_6">
                 <div className={styles.challenges}>
                   <HeadingText title="Challenges" subheading />
-                  <div className={styles.content}>{projectDetails?.challanges}</div>
+                  <div className={styles.content}>{projectDetails?.challenges}</div>
                 </div>
               </div>
             </div>

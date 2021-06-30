@@ -65,6 +65,7 @@ const AboutTab = (props: Props): JSX.Element => {
               data={item?.review}
               company={item?.company}
               image={item?.image}
+              designation={item?.designation}
             />
           ))}
         </div>

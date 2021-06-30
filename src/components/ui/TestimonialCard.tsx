@@ -7,6 +7,7 @@ interface Props {
   data: string
   image: string
   company: string
+  designation: string
 }
 
 const TestimonialCard = (props: Props): JSX.Element => {
@@ -22,7 +23,9 @@ const TestimonialCard = (props: Props): JSX.Element => {
         </div>
         <div className={styles.userDetails}>
           <div className={styles.name}>{props.name}</div>
-          <div className={styles.company}>{props.company}</div>
+          <div className={styles.company}>
+            {props.company} | {props.designation}
+          </div>
         </div>
       </div>
     </div>
