@@ -11,8 +11,19 @@ interface projectItem {
   type: 'mobile' | 'web' | 'other'
 }
 
-const generateProject = (props: projectItem) => {
-  return { ...props }
+interface skillData {
+  title: string
+  value: number
+}
+
+interface experienceItem {
+  visibility_index: number
+  about: string
+  additional_details: string
+  end_time: string
+  start_time: string
+  title: string
+  worked_for: string
 }
 
 const projects: Array<projectItem> = [
@@ -83,15 +94,131 @@ const projects: Array<projectItem> = [
   },
 ]
 
+const educationExperience: Array<experienceItem> = [
+  {
+    title: 'Secondary Examination',
+    about:
+      'I have Passed Secondary examination under west bengal board of secondary education with 79.85% marks.',
+    additional_details: '',
+    end_time: '2016',
+    start_time: '',
+    visibility_index: 1,
+    worked_for: 'Chousal High School',
+  },
+  {
+    title: 'Higher Secondary with Science',
+    about:
+      'I have passed higher secondary examination under West Bengal Council Of Higher Secondary Education in 2018 with 76.4% with Science Background.',
+    additional_details: '',
+    end_time: '2018',
+    start_time: '2016',
+    visibility_index: 2,
+    worked_for: 'Chousal High School',
+  },
+  {
+    title: 'Diploma in Computer science & Technology',
+    about:
+      'I have Passed all my previous semester with a CGPA of 8.4(Average). And also learn so many fundamentals.',
+    additional_details: '',
+    end_time: 'present',
+    start_time: '2018',
+    visibility_index: 3,
+    worked_for: 'Achharyya Prafulla Chandra Ray Polytechnic',
+  },
+]
+
+const workExperience: Array<experienceItem> = [
+  {
+    title: 'Front-end Developer Intern',
+    about:
+      'Here I learn How to work with a team and my contribution is I have helped other team member by building some of the component of that project. Mostly I use React Js.',
+    additional_details: '',
+    end_time: 'Oct',
+    start_time: '2020 Sep',
+    visibility_index: 1,
+    worked_for: 'Lapolo',
+  },
+  {
+    title: 'Android Dev Freelancer',
+    about:
+      'Here I use React Native to help a starup to build an hybrid app named Your paecel. That has social authentication and also uses location to sort data.',
+    additional_details: '@upwork',
+    end_time: 'Nov',
+    start_time: '2020 Oct',
+    visibility_index: 2,
+    worked_for: 'Ankit & Co.',
+  },
+  {
+    title: 'Lead Front-end Developer',
+    about:
+      'Back again to lapolo with a new post as lead front end developer. Uses react js and build three major websites and also get love from the team members.',
+    additional_details: '',
+    end_time: '2021 Mar',
+    start_time: '2020 Dec',
+    visibility_index: 3,
+    worked_for: 'Lapolo',
+  },
+  {
+    title: 'Front-end Developer',
+    about:
+      'now I got chance to a company based on uk and currently working here, Most of the projects I build with React js and some with Next js and also I use react native to build mobile apps here.',
+    additional_details: '',
+    end_time: 'Present',
+    start_time: '2021 Mar',
+    visibility_index: 4,
+    worked_for: '3rdly.uk',
+  },
+]
+
+const dev_skills: Array<skillData> = [
+  {
+    title: 'React JS',
+    value: 90,
+  },
+  {
+    title: 'Next JS',
+    value: 75,
+  },
+  {
+    title: 'React-Native',
+    value: 85,
+  },
+  {
+    title: 'Flutter',
+    value: 80,
+  },
+]
+const professional_skills: Array<skillData> = [
+  {
+    title: 'Communication',
+    value: 90,
+  },
+  {
+    title: 'Team work',
+    value: 95,
+  },
+  {
+    title: 'git',
+    value: 90,
+  },
+  {
+    title: 'Leadership',
+    value: 85,
+  },
+]
+
 const WriteToCloudFirestore = (): JSX.Element => {
   const sendData = (): void => {
     try {
       firebase
         .firestore()
-        .collection('myCollection')
-        .doc('my_document')
+        .collection('home')
+        .doc('resume')
         .set({
-          projects: projects,
+          dev_skills: dev_skills,
+          professional_skills: professional_skills,
+          education_experience: educationExperience,
+          work_experience: workExperience,
         })
         .then(() => alert('data successfully send to backend'))
     } catch (error) {

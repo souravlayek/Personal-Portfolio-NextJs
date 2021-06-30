@@ -19,7 +19,7 @@ const PortfolioTab = (props: Props): JSX.Element => {
 
   const [projectDetails, setProjectDetails] = useState<any>(undefined)
 
-  const TABS = ['All', 'Mobile', 'Web', 'Others']
+  const TABS = ['All', 'Mobile', 'Web', 'Other']
 
   useEffect(() => {
     if (activeTab === 0) {

@@ -7,7 +7,7 @@ import Image from 'next/image'
 import { Formik, Form, Field, FormikHelpers } from 'formik'
 import * as Yup from 'yup'
 import { useToasts } from 'react-toast-notifications'
-
+// import WriteToCloudFirestore from '../cloudFireStore/Write'
 interface Props {
   data: string
   image_url: string
@@ -60,6 +60,7 @@ const HomeTab = (props: Props): JSX.Element => {
 
   return (
     <div className={styles.homeTabContainer}>
+      {/* <WriteToCloudFirestore /> */}
       <div className={styles.profile}>
         <div className={styles.user_info}>
           <div className={styles.profile_pic}>
